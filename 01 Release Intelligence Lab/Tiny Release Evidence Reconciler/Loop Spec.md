@@ -99,7 +99,19 @@ The report should include:
 
 ## Evaluation
 
-Each example should have:
+Each example should have a model-visible packet plus a scorer-only answer-key entry.
+
+The model-visible packet should include:
+
+- release type
+- readiness claim
+- claimed or desired decision
+- evidence sources
+- evidence details
+- known issues
+- evidence gaps
+
+The scorer-only answer key should include:
 
 - expected readiness label
 - expected rationale
@@ -113,4 +125,3 @@ The output is successful when:
 - the report does not overstate confidence
 - next evidence is concrete
 - human review boundaries are preserved
-

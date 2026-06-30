@@ -36,7 +36,7 @@ What did not work, stayed uncertain, or produced weak evidence?
 
 ## Transferable Learning
 
-What lesson transfers to FieldIQ, release intelligence, Codex workflows, Obsidian, or agent governance?
+What lesson transfers to field operations, release intelligence, Codex workflows, Obsidian, or agent governance?
 
 ## Artifact Check
 

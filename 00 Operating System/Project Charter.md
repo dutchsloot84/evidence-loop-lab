@@ -14,7 +14,7 @@ This is an umbrella project for:
 - release readiness and evidence quality
 - agent loops and governance
 - evals and scorecards
-- FieldIQ pilot-proof thinking
+- field-operations pilot-proof thinking
 - Rovo and release-intelligence workflows
 - Obsidian knowledge-graph maintenance
 - teach-back demos
@@ -47,7 +47,7 @@ Evidence Loop Lab is not:
 - a production SaaS product
 - a dumping ground for work notes
 - a repository for sensitive company data
-- a replacement for FieldIQ pilot proof
+- a replacement for field-operations pilot proof
 - a dashboard project before markdown loops work
 
 ## Core Constraint
@@ -72,7 +72,7 @@ Release evidence reconciliation teaches the most transferable pattern: compare a
 This transfers to:
 
 - Rovo release intelligence
-- FieldIQ pilot proof
+- field-operations pilot proof
 - Codex workflow governance
 - eval design
 - Obsidian synthesis practices

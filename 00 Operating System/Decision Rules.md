@@ -39,7 +39,7 @@ Merge a lab when another lab uses the same loop pattern.
 
 Examples:
 
-- release readiness and FieldIQ pilot proof both use claim -> evidence -> risk -> next evidence
+- release readiness and field-operations pilot proof both use claim -> evidence -> risk -> next evidence
 - agent governance and weekly review both use approval boundaries and stop conditions
 - Obsidian knowledge loops and teach-back artifacts both use raw source -> synthesis -> update neighbors
 

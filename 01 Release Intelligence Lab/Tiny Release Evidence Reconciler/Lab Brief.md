@@ -31,7 +31,7 @@ It connects directly to:
 
 - release intelligence
 - Rovo workflows
-- FieldIQ pilot proof
+- field-operations pilot proof
 - Codex task loops
 - eval design
 - agent governance

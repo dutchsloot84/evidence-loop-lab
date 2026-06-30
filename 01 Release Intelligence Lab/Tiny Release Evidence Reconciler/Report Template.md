@@ -9,11 +9,14 @@ Use this template once per eval example. Keep entries synthetic or sanitized. Do
 - Example ID:
 - Release type:
 - Claimed or desired decision:
-- Expected readiness label:
 
 ### Input Claim
 
 > Paste the readiness claim exactly as provided in the synthetic input packet.
+
+### Summary
+
+Write a concise readiness summary in one to three sentences.
 
 ### Evidence Summary
 
@@ -64,9 +67,9 @@ State whether human review is required and why. The report may recommend a readi
 
 ### Eval Notes
 
-- Expected label:
+Use this section only after generation, during scoring.
+
 - Actual label:
-- Match:
 - Important evidence cited:
-- Failure mode to watch for:
+- Score:
 - Review note:

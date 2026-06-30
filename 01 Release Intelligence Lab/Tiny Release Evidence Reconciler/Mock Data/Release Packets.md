@@ -18,6 +18,7 @@ Use these examples to test whether the loop can separate readiness claims from e
 - Example ID: REL-G-001
 - Release type: Platform patch
 - Readiness claim: "The platform patch is ready for release after staging validation."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Automated regression suite
   - Manual smoke test checklist
@@ -36,15 +37,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - One low-priority visual alignment issue remains in a secondary settings view.
 - Evidence gaps:
   - Post-release owner rotation is noted but not scheduled in detail.
-- Expected readiness label: Green
-- Expected rationale: Core readiness is supported by regression tests, smoke validation, review approval, staging deployment evidence, rollback documentation, and monitoring. The remaining visual issue is minor and does not materially change the release decision.
-- Failure mode to watch for: Over-penalizing a minor cosmetic issue despite strong release evidence.
 
 ### Example REL-G-002
 
 - Example ID: REL-G-002
 - Release type: Security fix
 - Readiness claim: "The security fix is ready to ship with verified remediation and rollback coverage."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Targeted remediation test
   - Automated regression suite
@@ -63,15 +62,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - None documented.
 - Evidence gaps:
   - Long-term hardening follow-up is not included in the release packet.
-- Expected readiness label: Green
-- Expected rationale: The claim is supported by direct remediation proof, regression evidence, review approval, and rollback coverage. The hardening follow-up is outside the immediate readiness claim.
-- Failure mode to watch for: Treating a future hardening follow-up as a blocker for a verified immediate fix.
 
 ### Example REL-G-003
 
 - Example ID: REL-G-003
 - Release type: Configuration update
 - Readiness claim: "The configuration update is ready because validation passed and recovery is documented."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Configuration diff summary
   - Data integrity report
@@ -90,15 +87,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - None documented.
 - Evidence gaps:
   - No separate stakeholder narrative is attached.
-- Expected readiness label: Green
-- Expected rationale: Validation, integrity checks, backup evidence, clear ownership, and rollback documentation support the readiness claim. Missing stakeholder narrative is a minor documentation gap for this low-risk configuration update.
-- Failure mode to watch for: Requiring stakeholder approval when technical validation and ownership are already sufficient for the claim.
 
 ### Example REL-G-004
 
 - Example ID: REL-G-004
 - Release type: Minor feature
 - Readiness claim: "The minor feature is ready for general availability."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Acceptance criteria checklist
   - Automated test mapping
@@ -117,15 +112,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - One help-text improvement is scheduled for a later documentation update.
 - Evidence gaps:
   - Accessibility review is summarized but not attached as a separate artifact.
-- Expected readiness label: Green
-- Expected rationale: The readiness claim is well supported because acceptance criteria are mapped to validation, tests passed, smoke testing covered key paths, review is complete, and monitoring is defined. The help-text and attachment gaps are minor.
-- Failure mode to watch for: Ignoring acceptance-criteria mapping and treating all documentation follow-ups as material gaps.
 
 ### Example REL-G-005
 
 - Example ID: REL-G-005
 - Release type: Dependency upgrade
 - Readiness claim: "The dependency upgrade is ready for release with no expected user-visible change."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Dependency change summary
   - Automated regression suite
@@ -145,9 +138,6 @@ Use these examples to test whether the loop can separate readiness claims from e
   - None documented.
 - Evidence gaps:
   - Performance comparison is limited to smoke-level observation, not a full benchmark.
-- Expected readiness label: Green
-- Expected rationale: The claim is appropriately limited to a no-user-visible-change dependency upgrade and is supported by regression, build, staging, review, monitoring, and rollback evidence. Full benchmarking is not required by the stated claim.
-- Failure mode to watch for: Demanding broad performance proof when the packet includes sufficient scoped validation.
 
 ## Yellow Examples
 
@@ -156,6 +146,7 @@ Use these examples to test whether the loop can separate readiness claims from e
 - Example ID: REL-Y-001
 - Release type: Feature release
 - Readiness claim: "The feature release is ready after QA."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Partial QA checklist
   - Automated test summary
@@ -172,15 +163,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - Mobile validation is not complete.
   - Error-state testing is not complete.
   - Rollback and monitoring notes are missing.
-- Expected readiness label: Yellow
-- Expected rationale: The release may be viable, but the readiness claim is only partially supported. Core implementation evidence exists, yet QA is incomplete and rollback/monitoring are missing, so human review is needed before release.
-- Failure mode to watch for: Marking green because some tests passed and review approval exists while ignoring incomplete QA.
 
 ### Example REL-Y-002
 
 - Example ID: REL-Y-002
 - Release type: Third-party integration
 - Readiness claim: "The integration is ready; only cosmetic issues remain."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Integration smoke test
   - Manual visual review
@@ -197,15 +186,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No production-like sync volume test.
   - No monitoring note for delayed syncs.
   - Cosmetic-vs-functional impact of the intermittent delay is unclear.
-- Expected readiness label: Yellow
-- Expected rationale: Evidence supports partial readiness, but the claim that only cosmetic issues remain is not fully proven because the intermittent sync delay may be functional. Human review should decide whether more integration validation is required.
-- Failure mode to watch for: Accepting the packet's "cosmetic only" framing without checking the sync-delay evidence.
 
 ### Example REL-Y-003
 
 - Example ID: REL-Y-003
 - Release type: Business-logic update
 - Readiness claim: "The business-logic update is ready after the late regression fix."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Regression fix note
   - Targeted test result
@@ -222,15 +209,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - Full regression suite was not rerun after the late change.
   - Monitoring note is missing.
   - Rollback note is missing.
-- Expected readiness label: Yellow
-- Expected rationale: The late regression appears fixed, but validation after the fix is too narrow to support a confident release. Human review is needed because broader regression, monitoring, and rollback evidence are missing.
-- Failure mode to watch for: Treating a targeted pass as equivalent to broad retesting after a late regression.
 
 ### Example REL-Y-004
 
 - Example ID: REL-Y-004
 - Release type: Workflow enhancement
 - Readiness claim: "The release is approved and ready to ship."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Stakeholder approval note
   - Code review approval
@@ -248,15 +233,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No manual smoke test evidence.
   - Rollback note is incomplete.
   - Monitoring note is missing.
-- Expected readiness label: Yellow
-- Expected rationale: Approval and automated tests support some readiness, but ownership and operational evidence are incomplete. The claim should be downgraded to human-review-needed rather than accepted as fully ready.
-- Failure mode to watch for: Overweighting stakeholder approval as a substitute for QA ownership and release controls.
 
 ### Example REL-Y-005
 
 - Example ID: REL-Y-005
 - Release type: Data-table update
 - Readiness claim: "The data-table update is ready because the backup was taken and validation passed."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Backup confirmation
   - Row-count validation
@@ -275,9 +258,6 @@ Use these examples to test whether the loop can separate readiness claims from e
   - Rollback detail says "restore backup if needed" but does not describe verification after restore.
   - No downstream smoke test is attached.
   - Monitoring note is missing.
-- Expected readiness label: Yellow
-- Expected rationale: Backup and validation evidence are useful, but rollback is underspecified and downstream impact is not proven. The update may be releasable after human review and concrete recovery validation.
-- Failure mode to watch for: Treating backup existence as a complete rollback plan.
 
 ## Red Examples
 
@@ -286,6 +266,7 @@ Use these examples to test whether the loop can separate readiness claims from e
 - Example ID: REL-R-001
 - Release type: Multi-part feature release
 - Readiness claim: "The feature is fully ready for release."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Merge summary
   - Pull request description summaries
@@ -302,15 +283,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No code review approval evidence.
   - No rollback note.
   - No monitoring note.
-- Expected readiness label: Red
-- Expected rationale: The claim is much stronger than the evidence. Merge descriptions and release notes are not enough to establish readiness without test, review, rollback, or monitoring evidence.
-- Failure mode to watch for: Confusing merged implementation work with release readiness.
 
 ### Example REL-R-002
 
 - Example ID: REL-R-002
 - Release type: Core workflow rollout
 - Readiness claim: "The rollout is ready for all users."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Automated test summary
   - Code review approval
@@ -320,21 +299,19 @@ Use these examples to test whether the loop can separate readiness claims from e
   - Code review approval is complete.
   - Deployment note describes the rollout steps.
 - Known issues:
-  - The edit-and-save path fails for one core workflow segment and is marked "to fix after release."
+  - An edit-and-save path fails for one optional workflow segment and is marked "to fix after release."
 - Evidence gaps:
-  - No evidence that the known core issue is acceptable.
+  - No evidence that the known issue is acceptable for broad rollout.
   - No stakeholder impact note.
   - No rollback plan.
   - No monitoring note.
-- Expected readiness label: Red
-- Expected rationale: Although some engineering evidence exists, an unresolved issue affects a core path. The packet does not justify releasing to all users, so the readiness claim is unsupported.
-- Failure mode to watch for: Downplaying a known core workflow issue because unrelated tests passed.
 
 ### Example REL-R-003
 
 - Example ID: REL-R-003
 - Release type: Compatibility release
 - Readiness claim: "The release is broadly compatible across supported platforms."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Automated test summary
   - Desktop smoke test
@@ -352,15 +329,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - Mobile web validation is missing.
   - No platform-compatibility matrix is attached.
   - Monitoring note is missing.
-- Expected readiness label: Red
-- Expected rationale: The broad compatibility claim is not supported because key platforms are untested. Evidence supports only limited platform readiness, not the stated release scope.
-- Failure mode to watch for: Letting a broad release note claim stand when platform evidence is narrow.
 
 ### Example REL-R-004
 
 - Example ID: REL-R-004
 - Release type: Approval-driven process change
 - Readiness claim: "The process change is approved and ready."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Stakeholder approval note
   - Acceptance criteria list
@@ -379,15 +354,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No acceptance-criteria verification.
   - No rollback note.
   - No monitoring note.
-- Expected readiness label: Red
-- Expected rationale: Approval exists, but acceptance criteria are not validated. The packet does not support a release-ready claim because validation, rollback, and monitoring evidence are missing.
-- Failure mode to watch for: Treating approval of direction as approval of readiness.
 
 ### Example REL-R-005
 
 - Example ID: REL-R-005
 - Release type: Deployment-only release
 - Readiness claim: "The deployment is ready; operations are covered."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Deployment note
   - Build verification
@@ -403,9 +376,6 @@ Use these examples to test whether the loop can separate readiness claims from e
   - Monitoring plan is missing.
   - No post-deploy smoke test is defined.
   - No on-call or owner note is present.
-- Expected readiness label: Red
-- Expected rationale: The operations-covered claim is unsupported because the packet lacks rollback, monitoring, post-deploy validation, and owner evidence. Build and review evidence alone do not prove operational readiness.
-- Failure mode to watch for: Accepting a deployment note as proof that operational controls exist.
 
 ## Blocked Examples
 
@@ -414,6 +384,7 @@ Use these examples to test whether the loop can separate readiness claims from e
 - Example ID: REL-B-001
 - Release type: Core workflow release
 - Readiness claim: "The release is ready despite one remaining issue."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Automated test summary
   - Known issue log
@@ -431,15 +402,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No mitigation plan.
   - No rollback plan.
   - No human acceptance of the staging failure.
-- Expected readiness label: Blocked
-- Expected rationale: A critical issue in the primary workflow contradicts the readiness claim. The release cannot be safely judged ready until the regression is fixed or an explicit mitigation decision is documented.
-- Failure mode to watch for: Labeling red instead of blocked when evidence directly shows a critical unresolved failure.
 
 ### Example REL-B-002
 
 - Example ID: REL-B-002
 - Release type: Checkout-like workflow update
 - Readiness claim: "The workflow update passed testing and is ready."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Test run summary
   - Manual QA note
@@ -457,15 +426,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No workaround.
   - No rollback plan.
   - No decision owner accepted the failure.
-- Expected readiness label: Blocked
-- Expected rationale: The packet claims testing passed, but the evidence says the core path failed. This direct contradiction blocks a safe release decision.
-- Failure mode to watch for: Summarizing partial QA passes while missing the failed core test.
 
 ### Example REL-B-003
 
 - Example ID: REL-B-003
 - Release type: Approval-gated release
 - Readiness claim: "The release is ready pending no further action."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Automated test summary
   - Manual smoke test
@@ -482,15 +449,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No named approval owner.
   - No final approval.
   - No escalation path for missing signoff.
-- Expected readiness label: Blocked
-- Expected rationale: Technical evidence is positive, but the packet itself identifies a required approval gate with no owner or final signoff. The decision cannot be made safely until the approval boundary is resolved.
-- Failure mode to watch for: Marking yellow because tests passed while ignoring a required missing approval.
 
 ### Example REL-B-004
 
 - Example ID: REL-B-004
 - Release type: Infrastructure migration
 - Readiness claim: "The migration is ready because staging validation passed."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Staging validation note
   - Rollback drill result
@@ -508,15 +473,13 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No operational mitigation if rollback is needed.
   - No human acceptance of rollback risk.
   - Monitoring thresholds are not defined.
-- Expected readiness label: Blocked
-- Expected rationale: Staging validation is not enough because rollback failed in staging. A failed recovery path contradicts operational readiness and blocks a safe release decision.
-- Failure mode to watch for: Overweighting happy-path staging validation and ignoring failed rollback evidence.
 
 ### Example REL-B-005
 
 - Example ID: REL-B-005
 - Release type: Bundled feature release
 - Readiness claim: "All core items are complete and the bundle is ready."
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 - Evidence sources present:
   - Release checklist
   - Backlog status summary
@@ -534,6 +497,3 @@ Use these examples to test whether the loop can separate readiness claims from e
   - No updated release note matching the completed subset.
   - No validation for incomplete core items.
   - No decision owner accepting a reduced scope.
-- Expected readiness label: Blocked
-- Expected rationale: The readiness claim is misleading because evidence shows core items remain incomplete while release notes claim they are included. The packet needs a scope decision before readiness can be evaluated.
-- Failure mode to watch for: Marking red for weak evidence without recognizing the explicit contradiction between claimed scope and backlog evidence.

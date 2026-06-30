@@ -20,7 +20,7 @@ Turn a release-readiness claim into an evidence-backed markdown report by checki
 
 - `00 Operating System/`: project charter, principles, artifact standards, review loops, and decision rules
 - `01 Release Intelligence Lab/`: first lab for release evidence reconciliation
-- `02 FieldIQ Pilot Proof Lab/`: future pilot-proof loop work using mock or sanitized examples
+- `02 Field Operations Pilot Proof Lab/`: future pilot-proof loop work using mock or sanitized examples
 - `03 Agent Governance Lab/`: future approval-boundary and stop-condition work
 - `04 Obsidian Knowledge Loop Lab/`: future knowledge-graph maintenance practices
 - `05 Personal Learning Labs/`: future learning experiments

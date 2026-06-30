@@ -7,10 +7,10 @@ The first 90 days should build capability in layers, not scatter across many int
 The sequence is:
 
 1. Learn claim/evidence reconciliation.
-2. Apply it to FieldIQ-shaped pilot proof.
+2. Apply it to field-operations-shaped pilot proof.
 3. Add governance and knowledge-loop practices around the working loops.
 
-## Days 1-30: Release Evidence Reconciler
+## Phase 1: Release Evidence Reconciler
 
 Active lab:
 
@@ -34,11 +34,11 @@ Target artifacts:
 - failure-modes note
 - 5-minute teach-back
 
-## Days 31-60: FieldIQ Pilot Proof Lab
+## Phase 2: Field Operations Pilot Proof Lab
 
 Capability:
 
-Define and test the sacred FieldIQ pilot loop using mock or sanitized examples.
+Define and test the sacred field operations pilot loop using mock or sanitized examples.
 
 Core loop:
 
@@ -56,9 +56,9 @@ Target artifacts:
 
 Boundary:
 
-This is FieldIQ pilot proof, not general AI architecture exploration.
+This is field-operations pilot proof, not general AI architecture exploration.
 
-## Days 61-90: Agent Governance and Knowledge Loop
+## Phase 3: Agent Governance and Knowledge Loop
 
 Capability:
 
@@ -84,9 +84,8 @@ Target artifacts:
 By day 90, Evidence Loop Lab should have:
 
 - one reusable release-evidence playbook
-- one FieldIQ pilot-proof loop spec
+- one field-operations pilot-proof loop spec
 - one agent governance checklist
 - one Obsidian knowledge-loop practice
 - at least three teach-back artifacts
 - a clear decision about which loop deserves deeper productization
-

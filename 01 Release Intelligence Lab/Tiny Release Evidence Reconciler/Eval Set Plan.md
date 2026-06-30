@@ -24,18 +24,26 @@ Total examples: 20
 
 ## Example Fields
 
-Each example should include:
+Each model-visible example should include:
 
 - example ID
 - release type
 - readiness claim
+- claimed or desired decision
 - evidence sources present
 - evidence details
 - known issues
 - evidence gaps
+
+The scorer-only answer key should include:
+
+- example ID
 - expected readiness label
 - expected rationale
+- important evidence to cite
 - failure mode to watch for
+
+Keep the answer key separate from the model-visible packet file.
 
 ## Green Patterns
 
@@ -100,4 +108,3 @@ Do not include:
 - exact ticket or PR titles
 - proprietary strategy
 - sensitive business context
-

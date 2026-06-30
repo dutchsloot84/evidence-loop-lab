@@ -9,11 +9,14 @@ This sample is fully synthetic and generic. It does not refer to real companies,
 - Example ID: synthetic-yellow-001
 - Release type: Feature release
 - Claimed or desired decision: Ready to release after final approval
-- Expected readiness label: Yellow
 
 ### Input Claim
 
 > The feature update is ready to release because the main implementation is complete, automated checks passed, and a product stakeholder reviewed the workflow. Only final approval is needed.
+
+### Summary
+
+The release has useful implementation and automated-test evidence, but the readiness claim is stronger than the validation packet supports. Human review is needed because QA coverage, rollback ownership, and known-issue impact are still incomplete.
 
 ### Evidence Summary
 
@@ -78,9 +81,9 @@ Human review is required before release. The reviewer should decide whether the 
 
 ### Eval Notes
 
-- Expected label: Yellow
+Use this section only after generation, during scoring.
+
 - Actual label: Yellow
-- Match: Yes
 - Important evidence cited: Passing automated checks, happy-path stakeholder review, incomplete QA, weak rollback plan, unresolved display issue impact.
-- Failure mode to watch for: Overstating readiness because some evidence is strong while ignoring rollback and ownership gaps.
+- Score: Not scored
 - Review note: This is a needs-human-review case, not a red case, because useful evidence exists and no critical contradiction is present.

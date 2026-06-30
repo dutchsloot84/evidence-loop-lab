@@ -16,7 +16,7 @@ Evidence Loop Lab helps me learn agentic engineering by building tiny, evidence-
 4. Prefer tiny working loops over architecture.
 5. Use mock or sanitized data by default.
 6. Separate learning goals from product goals.
-7. Separate FieldIQ pilot proof from general AI architecture exploration.
+7. Separate field-operations pilot proof from general AI architecture exploration.
 8. Add evals before adding polish.
 9. Keep human approval boundaries explicit.
 10. Preserve raw examples, expected outputs, actual outputs, and review notes.
@@ -31,15 +31,15 @@ Product goals are about building stable tools, interfaces, automation, or deploy
 
 For the first 30 days, learning goals win. Product work is allowed only when it helps create a tiny proof artifact.
 
-## FieldIQ Boundary
+## Field Operations Boundary
 
-FieldIQ pilot proof is important, but it should not absorb the first release-intelligence lab.
+Field-operations pilot proof is important, but it should not absorb the first release-intelligence lab.
 
 Release Intelligence Lab focuses on the general pattern:
 
 claim -> evidence -> risk -> next evidence -> report
 
-FieldIQ Pilot Proof Lab later applies that pattern to:
+Field Operations Pilot Proof Lab later applies that pattern to:
 
 login -> visit capture -> generated summary -> review -> repeat
 
@@ -48,4 +48,3 @@ login -> visit capture -> generated summary -> review -> repeat
 Do not overbuild infrastructure before one tiny loop works.
 
 The first working version can be manual, markdown-based, or script-assisted. A dashboard, database, or agent framework only becomes justified after the loop creates useful artifacts.
-

@@ -21,7 +21,7 @@ The output being scored is a markdown readiness report with:
 
 Each report receives up to 100 points.
 
-Use the expected label, expected rationale, important evidence, and failure mode listed for the eval example as the answer key.
+Use `Mock Data/Answer Key.md` for the expected label, expected rationale, important evidence, and failure mode. Do not include the answer key in model-visible prompt context.
 
 | Category | Points |
 | --- | ---: |
@@ -424,4 +424,3 @@ Do not include:
 - exact ticket or PR titles
 - proprietary strategy
 - sensitive business context
-

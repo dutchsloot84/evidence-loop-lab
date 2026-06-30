@@ -41,7 +41,7 @@ The tiny working version should not start until examples, expected outputs, and 
 
 ## Transferable Learning
 
-Release readiness, FieldIQ pilot proof, Codex loops, and agent governance all depend on the same core skill: do not accept a status claim until it is checked against evidence.
+Release readiness, field-operations pilot proof, Codex loops, and agent governance all depend on the same core skill: do not accept a status claim until it is checked against evidence.
 
 ## Artifact Check
 

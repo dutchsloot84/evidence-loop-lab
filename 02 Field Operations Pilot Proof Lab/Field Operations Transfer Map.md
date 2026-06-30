@@ -1,14 +1,14 @@
-# FieldIQ Transfer Map
+# Field Operations Transfer Map
 
 ## Purpose
 
-This map explains how the Release Evidence Reconciler pattern transfers into FieldIQ-shaped pilot proof while keeping the two labs separate.
+This map explains how the Release Evidence Reconciler pattern transfers into a field-operations pilot-proof loop while keeping the two labs separate.
 
 The shared pattern is:
 
 claim -> evidence -> risk -> next evidence -> report
 
-The FieldIQ-shaped product loop is:
+The field-operations product loop is:
 
 login -> visit capture -> generated summary -> review -> repeat
 
@@ -25,7 +25,7 @@ The Release Evidence Reconciler teaches a generic evidence habit:
 5. Request the next evidence needed.
 6. Produce a short report that preserves human approval boundaries.
 
-For FieldIQ pilot proof, the same habit becomes a product-proof loop:
+For field-operations pilot proof, the same habit becomes a product-proof loop:
 
 1. A pilot user can log in.
 2. The user can capture a mock field visit.
@@ -33,7 +33,7 @@ For FieldIQ pilot proof, the same habit becomes a product-proof loop:
 4. A human can review the summary against the captured visit.
 5. The loop can repeat across multiple sanitized visit shapes.
 
-The transfer is not from release management into a FieldIQ feature list. The transfer is from evidence discipline into pilot-proof judgment.
+The transfer is not from release management into a field-operations feature list. The transfer is from evidence discipline into pilot-proof judgment.
 
 ## Keep The Labs Separate
 
@@ -50,9 +50,9 @@ The Release Intelligence Lab exists to learn the generic pattern:
 
 Its artifacts should stay release-shaped: mock readiness packets, readiness reports, eval examples, scorecards, and failure modes.
 
-### FieldIQ Pilot Proof Lab Product-Proof Goals
+### Field Operations Pilot Proof Lab Product-Proof Goals
 
-The FieldIQ Pilot Proof Lab exists to prove whether the sacred product loop works in a mock or sanitized setting:
+The Field Operations Pilot Proof Lab exists to prove whether the sacred product loop works in a mock or sanitized setting:
 
 - a user can log in
 - a user can capture a visit
@@ -61,11 +61,11 @@ The FieldIQ Pilot Proof Lab exists to prove whether the sacred product loop work
 - a human can approve, correct, or reject the summary
 - the loop can repeat across representative visit shapes
 
-Its artifacts should stay FieldIQ-shaped: mock visit captures, generated summaries, review rubrics, pilot-proof reports, and repeat-loop scorecards.
+Its artifacts should stay field-operations-shaped: mock visit captures, generated summaries, review rubrics, pilot-proof reports, and repeat-loop scorecards.
 
 ## Loop Mapping
 
-| Generic evidence loop | FieldIQ-shaped pilot loop | Product-proof question |
+| Generic evidence loop | Field-operations pilot loop | Product-proof question |
 | --- | --- | --- |
 | claim | login | Can the intended pilot user reach the workflow without help? |
 | evidence | visit capture | Is there observable, reviewable input from a mock visit? |
@@ -73,11 +73,11 @@ Its artifacts should stay FieldIQ-shaped: mock visit captures, generated summari
 | next evidence | review | What human correction, approval, or additional capture is needed? |
 | report | repeat | Can the loop run again and produce comparable evidence across examples? |
 
-The generic loop produces a readiness report. The FieldIQ loop produces a pilot-proof report: a concise record of what worked, what failed, what needs human review, and what mock example should be tried next.
+The generic loop produces a readiness report. The field operations loop produces a pilot-proof report: a concise record of what worked, what failed, what needs human review, and what mock example should be tried next.
 
 ## Pilot-Proof Claim Types
 
-Use these claim types when writing FieldIQ-shaped examples:
+Use these claim types when writing field-operations-shaped examples:
 
 - Access claim: "A pilot user can log in and reach the visit workflow."
 - Capture claim: "A pilot user can record the important details of a field visit."
@@ -108,7 +108,7 @@ Do not use screenshots, logs, exports, customer records, or real work artifacts 
 
 Reuse the release lab labels, but define them in pilot-proof terms:
 
-| Label | FieldIQ pilot-proof meaning |
+| Label | field-operations pilot-proof meaning |
 | --- | --- |
 | Green | The mock loop supports the claim. The login, capture, summary, and review evidence are coherent, and gaps are minor. |
 | Yellow | The loop mostly works, but human review is needed because a summary is incomplete, a capture field is ambiguous, or repeatability is not proven yet. |
@@ -121,7 +121,7 @@ Risk notes should be plain and specific:
 - Completeness risk: the capture misses information needed for review.
 - Usability risk: the user can technically complete the flow, but only with confusion or workarounds.
 - Repeatability risk: one example works, but the loop has not been tested across varied visit shapes.
-- Boundary risk: an example depends on real FieldIQ data or sensitive context and must be replaced with sanitized mock data.
+- Boundary risk: an example depends on real field-operations data or sensitive context and must be replaced with sanitized mock data.
 
 ## First Mock Examples To Create Later
 
@@ -139,7 +139,7 @@ All examples should be synthetic. Use generic names like "Mock Site A" or "Pilot
 
 ## Human Approval Boundaries
 
-The FieldIQ pilot-proof loop may recommend a readiness label, but it must not claim authority to approve real pilot readiness.
+The field-operations pilot-proof loop may recommend a readiness label, but it must not claim authority to approve real pilot readiness.
 
 Human approval is required when:
 
@@ -158,20 +158,20 @@ Do not build these until the markdown loop produces useful artifacts:
 
 - production dashboard
 - database-backed pilot evidence store
-- real FieldIQ data connector
-- automated ingestion from customer systems
+- live-data connector
+- automated ingestion from external systems
 - agent framework for autonomous pilot decisions
-- customer-facing reports
-- real login integration
+- external-facing reports
+- production authentication integration
 - real workflow instrumentation
-- broad architecture for all FieldIQ features
+- broad architecture for future features
 - polished UI before mock examples and rubrics exist
 
 The first useful version can be manual: one mock visit packet, one generated summary, one review note, one readiness label, one next-evidence request, and one pilot-proof report.
 
 ## Transfer Output Shape
 
-A FieldIQ pilot-proof report should include:
+A field-operations pilot-proof report should include:
 
 - pilot-proof claim
 - mock visit evidence used
@@ -185,6 +185,6 @@ A FieldIQ pilot-proof report should include:
 
 ## Integration Notes
 
-This map should sit between the Release Evidence Reconciler and a future FieldIQ Pilot Proof Lab loop spec.
+This map should sit between the Release Evidence Reconciler and a future Field Operations Pilot Proof Lab loop spec.
 
-It should not replace the Release Intelligence Lab artifacts. It should help translate their evidence discipline into FieldIQ-shaped mock product proof when the project moves from Days 1-30 learning into Days 31-60 pilot-proof work.
+It should not replace the Release Intelligence Lab artifacts. It should help translate their evidence discipline into field-operations-shaped mock product proof when the project moves from the first release-intelligence sprint into later pilot-proof work.
