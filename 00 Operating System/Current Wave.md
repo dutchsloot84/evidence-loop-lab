@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 5 blocked calibration complete. Full eval completion recommended next.
+Status: Wave 6 mixed regression complete. Finish remaining seven eval examples next.
 
 ## Current Date
 
@@ -157,6 +157,39 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/Scoring Review.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
 
+## Wave 6 Summary
+
+Wave 6 ran a mixed regression batch:
+
+- `REL-G-003`
+- `REL-Y-003`
+- `REL-R-004`
+- `REL-B-004`
+
+Result:
+
+- 4 reports generated
+- 4 exact label matches
+- average score: 100
+- automatic-fail count: 0
+- Red or Blocked softened to Green: 0
+- prompt change needed: no
+
+## Wave 6 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-G-003 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-Y-003 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-R-004 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-B-004 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-G-003 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-Y-003 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-R-004 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/REL-B-004 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/Scoring Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -202,23 +235,23 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 6
+## Recommended Wave 7
 
 Recommended next wave:
 
-Complete Eval Set Or Mixed Regression Batch
+Complete Remaining Eval Examples
 
 Reason:
 
-The loop has now performed well on Green, Yellow, Red, and Blocked examples. The remaining question is whether this quality holds across the full 20-example eval set without overfitting to the first nine examples.
+The loop has now passed mixed calibration across all four labels and 13 scored examples. The highest-leverage next step is to complete the remaining seven examples and get the full 20-example eval result.
 
 Potential slices:
 
-- Option A: prepare, generate, and score the remaining 11 examples to complete the 20-example eval.
-- Option B: run a 4-example mixed regression batch if time is tight: `REL-G-003`, `REL-Y-003`, `REL-R-004`, `REL-B-004`.
-- Update the aggregate eval results across all completed examples.
-- Decide whether the loop is stable enough for a teach-back demo.
-- Keep scoring manual until the full eval pattern is understood.
+- prepare, generate, and score `REL-G-004`, `REL-G-005`, `REL-Y-004`, `REL-Y-005`, `REL-R-001`, `REL-R-005`, and `REL-B-005`
+- produce a full 20-example aggregate scorecard
+- decide pass, review, or fail against the rubric thresholds
+- write the first teach-back demo script if the eval passes or only has minor calibration misses
+- keep scoring manual until the full eval result is reviewed
 
 ## Stop Condition
 

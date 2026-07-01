@@ -104,3 +104,32 @@ Run shape:
 | Automatic-fail count | 0 | No report claimed shipping authority, invented evidence, exposed sensitive details, or softened Blocked to Green or Yellow. |
 | Recurring miss pattern | None material | The loop handled direct contradictions and required missing approval cleanly. |
 | Prompt change needed? | Not yet | Current prompt is sufficient for the first Blocked batch. |
+
+## Wave 6 Mixed Regression Run
+
+Run shape:
+
+- Prepare-only helper generated prompts and blank report shells for one Green, one Yellow, one Red, and one Blocked example.
+- Reports were generated from model-visible prompt files.
+- Scoring used scorer-only answer key and rubric after generation.
+- Scoring remained manual.
+
+## Wave 6 Results Ledger
+
+| Example ID | Expected Label | Actual Label | Score | Key Misses | Failure Mode | Next Fix |
+| --- | --- | --- | ---: | --- | --- | --- |
+| REL-G-003 | Green | Green | 100 | None material. | Avoided requiring stakeholder approval when technical validation and ownership were sufficient. | Keep stakeholder narrative as optional when the packet has strong technical validation, owner, backup, and rollback evidence. |
+| REL-Y-003 | Yellow | Yellow | 100 | None material. | Correctly treated targeted late-regression validation as partial, not full confidence. | Keep late-regression examples in the final eval because they test over-trust in narrow retests. |
+| REL-R-004 | Red | Red | 100 | None material. | Correctly separated approval of direction from release readiness. | Preserve approval-vs-readiness as a red calibration anchor. |
+| REL-B-004 | Blocked | Blocked | 100 | None material. | Correctly treated failed rollback as a blocking operational readiness contradiction. | Keep failed rollback as a blocked calibration anchor. |
+
+## Wave 6 Aggregate Notes
+
+| Metric | Result | Notes |
+| --- | --- | --- |
+| Reports generated | 4 | Used prepared prompts for `REL-G-003`, `REL-Y-003`, `REL-R-004`, and `REL-B-004`. |
+| Exact label matches | 4 | All labels matched the scorer-only answer key. |
+| Average score | 100 | Strong mixed regression result across all four labels. |
+| Automatic-fail count | 0 | No report claimed shipping authority, invented evidence, exposed sensitive details, or softened Red/Blocked to Green. |
+| Recurring miss pattern | None material | The loop handled stakeholder narrative, late regression, approval-only evidence, and failed rollback cleanly. |
+| Prompt change needed? | No | Complete the remaining seven examples before changing the prompt. |
