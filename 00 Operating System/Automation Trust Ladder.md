@@ -259,6 +259,23 @@ Allowed next use:
 
 Trust level remains Level 2, Auditor. Promotion should be considered only through a separate automation trust review.
 
+## Wave 14 Reusable Eval Pack Note
+
+Wave 14 converted the successful parallel-generation pattern into reusable templates.
+
+Result:
+
+- stable worker prompt captured
+- fresh-batch packet template created
+- scorer comparison template created
+- leakage audit checklist created
+- eligibility and stop conditions created
+- run log template created
+
+The pack reduces setup friction for future supervised synthetic batches, but it does not increase automation authority.
+
+Trust level remains Level 2, Auditor.
+
 ## Promotion Rule
 
 Promote one level only after two clean runs at the current level.

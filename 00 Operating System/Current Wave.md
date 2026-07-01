@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 13 fresh noisy synthetic batch complete. Reusable eval pack recommended next.
+Status: Wave 14 reusable parallel eval pack complete. Trust review or transfer proof recommended next.
 
 ## Current Date
 
@@ -410,6 +410,35 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Leakage Audit.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/ROI Review.md`
 
+## Wave 14 Summary
+
+Wave 14 converted the working parallel-generation pattern into a reusable eval pack.
+
+Result:
+
+- stable worker prompt extracted
+- model-visible packet template created
+- scorer comparison template created
+- leakage audit checklist created
+- eligibility and stop conditions created
+- worker run log template created
+- release evidence playbook updated
+- scoring automation still deferred
+
+The pack captures the boundary that made Waves 11-13 work: generation-only workers, answer-key separation, main-thread scoring, leakage audit, and explicit human approval boundaries.
+
+## Wave 14 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/README.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/Stable Worker Prompt v2.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/Fresh Batch Packet Template.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/Scorer Comparison Template.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/Leakage Audit Checklist.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/Eligibility and Stop Conditions.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Parallel Eval Pack/Run Log Template.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -455,25 +484,23 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 14
+## Recommended Wave 15
 
 Recommended next wave:
 
-Reusable Parallel Eval Pack
+Choose Trust Review Or Transfer Proof
 
 Reason:
 
-Wave 13 passed on noisy synthetic examples. The next proof should convert the working pattern into reusable templates and stop conditions so future batches can be launched faster without increasing risk.
+Wave 14 made the parallel eval pattern reusable. The next proof should either review whether automation trust should change, or transfer the evidence-loop pattern to another lab area such as Field Operations Pilot Proof.
 
 Potential slices:
 
-- consolidate the stable v2 worker prompt
-- create a fresh-batch packet template
-- create a scorer comparison template
-- create a leakage audit checklist
-- define eligibility rules for parallel generation
-- define stop conditions and human approval boundaries
+- Option A: run an automation trust review using Waves 9-14 evidence
+- Option B: transfer the loop to Field Operations Pilot Proof with synthetic visit-summary packets
+- Option C: create a short demo walkthrough of the eval pack
+- Option D: run another synthetic batch only if there is a new failure mode to test
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if template work blurs answer-key separation, encourages real or sensitive data use, weakens the human approval boundary, or skips manual scoring.
+Do not automate scoring yet. Stop if the next wave would use real or sensitive data, blur answer-key separation, weaken the human approval boundary, or promote automation trust without a separate review.

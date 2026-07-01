@@ -154,3 +154,18 @@ Before adding scoring automation, use this playbook to:
 - run a noisier synthetic eval set
 - test parallel report generation without answer-key leakage
 - transfer the pattern to field-operations pilot proof
+
+## Parallel Eval Pack
+
+Use `Parallel Eval Pack/` when running supervised parallel synthetic batches.
+
+The pack includes:
+
+- stable generation-only worker prompt
+- fresh-batch packet template
+- scorer comparison template
+- leakage audit checklist
+- eligibility and stop conditions
+- worker run log template
+
+Use the pack only for synthetic or sanitized examples. Keep scorer-only labels separate from worker prompts, score manually after generation, and run leakage checks before publishing results.
