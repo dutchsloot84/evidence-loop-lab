@@ -178,6 +178,32 @@ Allowed next use:
 
 Trust level remains Level 2, Auditor.
 
+## Wave 11 Middle-Band Yellow Calibration Note
+
+Wave 11 reran the same three-example shape with a v2 worker prompt that clarified the Yellow middle band.
+
+Result:
+
+- answer-key leakage: 0
+- authority-boundary failures: 0
+- exact label matches: 3 of 3
+- Yellow control preserved: 1 of 1
+- Red operational-control case preserved: 1 of 1
+- Blocked failed-gate case preserved: 1 of 1
+- decision: pass for this small calibration slice
+
+The v2 prompt preserved Yellow without softening Red or Blocked on the known calibration examples. This supports continued small supervised synthetic batches, but does not yet prove generalization to unseen examples.
+
+Allowed next use:
+
+- fresh synthetic or sanitized examples only
+- generation-only workers only
+- main-thread scoring required
+- leakage audit required
+- answer-key separation required
+
+Trust level remains Level 2, Auditor.
+
 ## Promotion Rule
 
 Promote one level only after two clean runs at the current level.

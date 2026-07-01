@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 10 severity-calibrated rerun complete. Middle-band Yellow calibration recommended next.
+Status: Wave 11 middle-band Yellow calibration complete. Fresh unseen synthetic batch recommended next.
 
 ## Current Date
 
@@ -308,6 +308,34 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/ROI Review.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Worker Prompt Template v2.md`
 
+## Wave 11 Summary
+
+Wave 11 reran the same three-example calibration shape with the v2 middle-band Yellow prompt.
+
+Result:
+
+- 3 reports generated
+- 3 exact label matches
+- answer-key leakage found: 0
+- authority-boundary failures: 0
+- Yellow control preserved: 1 of 1
+- Red operational-control case preserved: 1 of 1
+- Blocked failed-gate case preserved: 1 of 1
+- decision: Pass for this small calibration slice
+
+The v2 prompt corrected Wave 10 overcorrection while preserving the Red and Blocked fixes.
+
+## Wave 11 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/Middle-Band Calibration Protocol.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/Model Visible Packets.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/Worker Run Log.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/Scorer Comparison.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/Leakage Audit.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/ROI Review.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -353,26 +381,26 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 11
+## Recommended Wave 12
 
 Recommended next wave:
 
-Rerun With Middle-Band Yellow Calibration
+Fresh Unseen Parallel Synthetic Batch
 
 Reason:
 
-Wave 10 fixed the two Wave 9 severity misses, but overcorrected the Yellow control to Red. The next proof should test whether a middle-band Yellow rule preserves appropriate caution without turning every unresolved warning into Red.
+Wave 11 passed on known calibration examples. The next proof should test whether the v2 prompt generalizes to fresh unseen synthetic examples before using parallel generation for larger eval work.
 
 Potential slices:
 
-- use `Worker Prompt Template v2.md`
-- rerun `PAR-Y-001` as the primary control
-- include one Red operational-control case
-- include one Blocked failed-gate case
+- create four fresh synthetic release packets
+- include one Green, one Yellow, one Red, and one Blocked case
+- keep scorer-only expected labels separate from worker prompts
+- generate reports in parallel
 - score manually after generation
-- compare exact labels and leakage against Waves 9 and 10
+- run leakage and sanitation checks
 - keep trust level at Level 2 unless the rerun is clean
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if the rerun leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, softens Red/Blocked evidence to Green, or overcorrects bounded Yellow ambiguity to Red again.
+Do not automate scoring yet. Stop if the fresh batch leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, softens Red/Blocked evidence to Green, or fails to preserve the Yellow middle band.
