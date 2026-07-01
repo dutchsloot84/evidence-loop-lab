@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 7 full 20-example eval complete. Teach-back demo recommended next.
+Status: Wave 8 teach-back and playbook complete. Next proof decision needed.
 
 ## Current Date
 
@@ -227,6 +227,28 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Full 20 Example Eval Aggregate.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
 
+## Wave 8 Summary
+
+Wave 8 turned the completed eval into reusable teaching artifacts:
+
+- 5-minute teach-back script
+- one-page release evidence playbook
+
+Result:
+
+- teach-back explains the loop, labels, eval result, limitations, and next proof options
+- playbook defines when to use the loop, inputs, outputs, labels, checks, failure modes, helper use, manual scoring, and stop conditions
+- human approval boundary remains explicit
+- synthetic-data limitation remains explicit
+- scoring automation remains deferred
+
+## Wave 8 Evidence
+
+Artifacts:
+
+- `06 Teach-Backs and Demos/Tiny Release Evidence Reconciler Teach-Back.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Release Evidence Playbook.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -272,24 +294,24 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 8
+## Recommended Wave 9
 
 Recommended next wave:
 
-Teach-Back Demo And Playbook
+Choose Next Proof
 
 Reason:
 
-The full 20-example eval now passes. The highest-leverage next step is to turn the work into a reusable explanation and playbook before adding more automation.
+The first lab now has a passing eval, a prepare helper, a teach-back, and a reusable playbook. The next move should deliberately choose which kind of proof compounds the project most.
 
 Potential slices:
 
-- write a 5-minute teach-back script
-- create a one-page playbook for turning readiness claims into evidence-backed reports
-- document when to use the prepare helper and when to keep scoring manual
-- name the next proof: noisier eval set, parallel generation experiment, or field-operations transfer
-- keep scoring automation deferred until after the teach-back review
+- Option A: run a noisier synthetic eval set to reduce overfitting risk
+- Option B: test parallel report generation with strict answer-key separation
+- Option C: transfer the loop to field-operations pilot proof
+- Option D: make a lightweight demo deck or walkthrough
+- keep scoring automation deferred until one of these proofs exposes the actual bottleneck
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if the teach-back blurs the human approval boundary, implies real work validation, or omits the synthetic-data limitation.
+Do not automate scoring yet. Stop if the next proof would use real or sensitive data, blur the human approval boundary, or skip explicit sanitation.
