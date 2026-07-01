@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 1 complete. Heartbeat monitor test planned.
+Status: Wave 2 manual eval run complete. Prepare-only helper recommended.
 
 ## Current Date
 
@@ -38,17 +38,51 @@ Artifacts:
 Repository:
 
 - `main` pushed to public GitHub repo
-- last known cleanup commit: `77f992e`
+- last known Wave 1 cleanup commit: `f76b03a`
+
+## Wave 2 Summary
+
+Wave 2 tested the first manual eval loop:
+
+- manual eval run guide
+- eval run ledger
+- three generated readiness reports
+- tiny local workflow spec
+- scorer-side review of the first three reports
+
+Result:
+
+- 3 reports generated
+- 3 exact label matches
+- average score: 96.7
+- automatic-fail count: 0
+- next recommendation: build a prepare-only helper before expanding past 3 examples
+
+## Wave 2 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Manual Eval Run Guide.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Tiny Local Workflow Spec.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 2 Manual Eval/REL-G-001 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 2 Manual Eval/REL-Y-001 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 2 Manual Eval/REL-R-002 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 2 Manual Eval/Scoring Review.md`
 
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
 
-The heartbeat may check state and recommend the next wave. It should not launch work without approval.
+The heartbeat test completed and was deleted after it became stale. Future heartbeats may check state and recommend the next wave. They should not launch work without approval.
 
 ## Heartbeat Test
 
-Goal:
+Result:
+
+The heartbeat successfully woke the thread, inspected the repo, reported Wave 1 artifact status, and recommended a next wave. It also exposed a useful operating rule: heartbeat instructions should be retired or updated once the wave advances, otherwise the monitor can recommend stale work.
+
+Original goal:
 
 Prove that a heartbeat can wake this thread, inspect project state, summarize evidence, and recommend the next wave without taking action.
 
@@ -81,25 +115,24 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 2
+## Recommended Wave 3
 
 Recommended next wave:
 
-Manual Eval Runner / First Tiny Local Workflow
+Prepare-Only Local Helper
 
 Reason:
 
-Wave 1 produced model-visible inputs, a scorer-only answer key, a rubric, and a report template. The next proof should test whether the loop can generate and score readiness reports from a few packets.
+Wave 2 proved that the manual loop can generate and score the first three reports. The next bottleneck is repeatability, not judgment. A tiny helper should reduce packet-selection, prompt-shaping, and output-path mistakes before expanding to the 20-example eval set.
 
 Potential slices:
 
-- create a manual eval run guide
-- generate readiness reports for 3-5 packets
-- score reports against `Answer Key.md`
-- record failure modes
-- decide what the tiny local script should do later
+- define the helper command contract
+- create a tiny local prepare helper
+- add a dry-run example for one packet
+- verify the helper never reads `Mock Data/Answer Key.md`
+- expand the manual eval run to the next 3-5 packets
 
 ## Stop Condition
 
-Do not launch Wave 2 until the heartbeat confirms Wave 1 is clean and the user approves the next wave.
-
+Do not automate scoring yet. Stop if scorer-only material appears in model-visible prompts, if the helper overwrites a report, or if any packet contains real or sensitive details.
