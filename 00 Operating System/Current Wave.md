@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 12 fresh unseen parallel batch complete. Fresh noisy synthetic batch recommended next.
+Status: Wave 13 fresh noisy synthetic batch complete. Reusable eval pack recommended next.
 
 ## Current Date
 
@@ -371,6 +371,45 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Leakage Audit.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/ROI Review.md`
 
+## Wave 13 Summary
+
+Wave 13 tested the v2 worker prompt on eight fresh noisy synthetic examples:
+
+- `NOISE-G-001`
+- `NOISE-G-002`
+- `NOISE-Y-001`
+- `NOISE-Y-002`
+- `NOISE-R-001`
+- `NOISE-R-002`
+- `NOISE-B-001`
+- `NOISE-B-002`
+
+Result:
+
+- 8 reports generated
+- 8 exact label matches
+- answer-key leakage found: 0
+- authority-boundary failures: 0
+- Green controls preserved: 2 of 2
+- Yellow controls preserved: 2 of 2
+- Red cases preserved: 2 of 2
+- Blocked cases preserved: 2 of 2
+- decision: Pass
+
+The v2 prompt held under incomplete, distracting, and ambiguously phrased synthetic evidence.
+
+## Wave 13 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Fresh Noisy Batch Protocol.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Model Visible Packets.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Worker Run Log.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Scorer Answer Key.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Scorer Comparison.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/Leakage Audit.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 13 Fresh Noisy Synthetic Batch/ROI Review.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -416,28 +455,25 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 13
+## Recommended Wave 14
 
 Recommended next wave:
 
-Fresh Noisy Synthetic Batch
+Reusable Parallel Eval Pack
 
 Reason:
 
-Wave 12 passed on clean fresh synthetic examples. The next proof should test whether the v2 prompt holds when evidence is incomplete, distracting, or ambiguously phrased.
+Wave 13 passed on noisy synthetic examples. The next proof should convert the working pattern into reusable templates and stop conditions so future batches can be launched faster without increasing risk.
 
 Potential slices:
 
-- create 6-8 fresh noisy synthetic packets
-- include at least one Green and one Yellow control
-- include at least one Red and one Blocked case
-- add distracting but non-decisive evidence
-- keep scorer-only expected labels separate from worker prompts
-- generate reports in parallel
-- score manually after generation
-- run leakage and sanitation checks
-- keep trust level at Level 2 unless the rerun is clean
+- consolidate the stable v2 worker prompt
+- create a fresh-batch packet template
+- create a scorer comparison template
+- create a leakage audit checklist
+- define eligibility rules for parallel generation
+- define stop conditions and human approval boundaries
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if the noisy batch leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, softens Red/Blocked evidence to Green, or fails to preserve Green and Yellow controls.
+Do not automate scoring yet. Stop if template work blurs answer-key separation, encourages real or sensitive data use, weakens the human approval boundary, or skips manual scoring.
