@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 9 parallel generation trust test complete. Prompt calibration fix recommended next.
+Status: Wave 10 severity-calibrated rerun complete. Middle-band Yellow calibration recommended next.
 
 ## Current Date
 
@@ -280,6 +280,34 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/ROI Review.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Scorer Answer Key.md`
 
+## Wave 10 Summary
+
+Wave 10 reran the two Wave 9 severity misses plus one Yellow control using the severity-calibrated worker prompt.
+
+Result:
+
+- 3 reports generated
+- 2 exact label matches
+- answer-key leakage found: 0
+- authority-boundary failures: 0
+- Wave 9 severity misses corrected: 2 of 2
+- Yellow control preserved: 0 of 1
+- decision: Improved, but not promotion-quality
+
+The prompt fixed under-severity on operational-readiness and failed-rollback cases, but overcorrected the Yellow control to Red.
+
+## Wave 10 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Severity-Calibrated Rerun Protocol.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Model Visible Packets.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Worker Run Log.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Scorer Comparison.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Leakage Audit.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/ROI Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 10 Severity-Calibrated Rerun/Worker Prompt Template v2.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -325,25 +353,26 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 10
+## Recommended Wave 11
 
 Recommended next wave:
 
-Rerun Parallel Generation With Severity-Calibrated Prompt
+Rerun With Middle-Band Yellow Calibration
 
 Reason:
 
-Wave 9 proved answer-key separation can hold across workers, but two workers softened severity on operational-readiness cases. The next proof should test whether a stronger prompt fixes that specific failure before parallel generation is used for larger batches.
+Wave 10 fixed the two Wave 9 severity misses, but overcorrected the Yellow control to Red. The next proof should test whether a middle-band Yellow rule preserves appropriate caution without turning every unresolved warning into Red.
 
 Potential slices:
 
-- use the new worker prompt template with severity calibration
-- rerun `PAR-R-001` and `PAR-B-001` with generation-only workers
-- include one Green or Yellow control example
+- use `Worker Prompt Template v2.md`
+- rerun `PAR-Y-001` as the primary control
+- include one Red operational-control case
+- include one Blocked failed-gate case
 - score manually after generation
-- compare exact labels and leakage against Wave 9
+- compare exact labels and leakage against Waves 9 and 10
 - keep trust level at Level 2 unless the rerun is clean
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if the rerun leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, or softens Red/Blocked evidence to Green.
+Do not automate scoring yet. Stop if the rerun leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, softens Red/Blocked evidence to Green, or overcorrects bounded Yellow ambiguity to Red again.

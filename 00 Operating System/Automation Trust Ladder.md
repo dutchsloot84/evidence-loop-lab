@@ -153,6 +153,31 @@ Allowed next use:
 
 Trust level remains Level 2, Auditor.
 
+## Wave 10 Severity-Calibrated Rerun Note
+
+Wave 10 reran two Wave 9 severity misses and one Yellow control with a stronger worker prompt.
+
+Result:
+
+- answer-key leakage: 0
+- authority-boundary failures: 0
+- exact label matches: 2 of 3
+- Wave 9 severity misses corrected: 2 of 2
+- Yellow control preserved: 0 of 1
+- decision: improved, but not promotion-quality
+
+The severity calibration fixed under-severity for Red and Blocked examples, but overcorrected the Yellow control to Red. Parallel generation remains useful only for small supervised synthetic batches with main-thread scoring.
+
+Allowed next use:
+
+- synthetic or sanitized examples only
+- generation-only workers only
+- main-thread scoring required
+- leakage audit required
+- middle-band Yellow calibration required
+
+Trust level remains Level 2, Auditor.
+
 ## Promotion Rule
 
 Promote one level only after two clean runs at the current level.
