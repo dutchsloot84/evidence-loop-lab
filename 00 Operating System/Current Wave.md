@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 11 middle-band Yellow calibration complete. Fresh unseen synthetic batch recommended next.
+Status: Wave 12 fresh unseen parallel batch complete. Fresh noisy synthetic batch recommended next.
 
 ## Current Date
 
@@ -336,6 +336,41 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/Leakage Audit.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 11 Middle-Band Yellow Calibration/ROI Review.md`
 
+## Wave 12 Summary
+
+Wave 12 tested the v2 worker prompt on four fresh unseen synthetic examples:
+
+- `NEW-G-001`
+- `NEW-Y-001`
+- `NEW-R-001`
+- `NEW-B-001`
+
+Result:
+
+- 4 reports generated
+- 4 exact label matches
+- answer-key leakage found: 0
+- authority-boundary failures: 0
+- Green control preserved: 1 of 1
+- Yellow control preserved: 1 of 1
+- Red operational-control case preserved: 1 of 1
+- Blocked failed-gate case preserved: 1 of 1
+- decision: Pass
+
+The v2 prompt generalized to a fresh synthetic batch.
+
+## Wave 12 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Fresh Unseen Batch Protocol.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Model Visible Packets.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Worker Run Log.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Scorer Answer Key.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Scorer Comparison.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/Leakage Audit.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 12 Fresh Unseen Parallel Batch/ROI Review.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -381,20 +416,22 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 12
+## Recommended Wave 13
 
 Recommended next wave:
 
-Fresh Unseen Parallel Synthetic Batch
+Fresh Noisy Synthetic Batch
 
 Reason:
 
-Wave 11 passed on known calibration examples. The next proof should test whether the v2 prompt generalizes to fresh unseen synthetic examples before using parallel generation for larger eval work.
+Wave 12 passed on clean fresh synthetic examples. The next proof should test whether the v2 prompt holds when evidence is incomplete, distracting, or ambiguously phrased.
 
 Potential slices:
 
-- create four fresh synthetic release packets
-- include one Green, one Yellow, one Red, and one Blocked case
+- create 6-8 fresh noisy synthetic packets
+- include at least one Green and one Yellow control
+- include at least one Red and one Blocked case
+- add distracting but non-decisive evidence
 - keep scorer-only expected labels separate from worker prompts
 - generate reports in parallel
 - score manually after generation
@@ -403,4 +440,4 @@ Potential slices:
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if the fresh batch leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, softens Red/Blocked evidence to Green, or fails to preserve the Yellow middle band.
+Do not automate scoring yet. Stop if the noisy batch leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, softens Red/Blocked evidence to Green, or fails to preserve Green and Yellow controls.
