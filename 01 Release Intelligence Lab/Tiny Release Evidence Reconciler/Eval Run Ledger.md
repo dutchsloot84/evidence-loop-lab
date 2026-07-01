@@ -76,3 +76,31 @@ Run shape:
 | Automatic-fail count | 0 | No report claimed shipping authority, invented evidence, exposed sensitive details, or assigned Green unsafely. |
 | Recurring miss pattern | Green caution wording | Green reports still add useful confirmation requests; keep them clearly non-blocking. |
 | Helper still justified? | Yes | The prepare-only helper reduced selection and output-path friction without automating judgment. |
+
+## Wave 5 Blocked Calibration Run
+
+Run shape:
+
+- Prepare-only helper generated prompts and blank report shells for Blocked examples.
+- Reports were generated from model-visible prompt files.
+- Scoring used scorer-only answer key and rubric after generation.
+- Scoring remained manual.
+
+## Wave 5 Results Ledger
+
+| Example ID | Expected Label | Actual Label | Score | Key Misses | Failure Mode | Next Fix |
+| --- | --- | --- | ---: | --- | --- | --- |
+| REL-B-001 | Blocked | Blocked | 100 | None material. | Correctly labeled critical unresolved primary-workflow failure as Blocked. | Keep critical unresolved failure language explicit in prompts and scoring notes. |
+| REL-B-002 | Blocked | Blocked | 100 | None material. | Correctly prioritized failed release-candidate core path over partial QA passes. | Continue checking direct contradictions before weighing partial positive evidence. |
+| REL-B-003 | Blocked | Blocked | 100 | None material. | Correctly treated missing required approval as a blocking governance boundary. | Preserve missing-required-approval as a Blocked calibration anchor. |
+
+## Wave 5 Aggregate Notes
+
+| Metric | Result | Notes |
+| --- | --- | --- |
+| Reports generated | 3 | Used prepared prompts for `REL-B-001`, `REL-B-002`, and `REL-B-003`. |
+| Exact label matches | 3 | All labels matched the scorer-only answer key. |
+| Average score | 100 | Strong Blocked calibration on the first batch. |
+| Automatic-fail count | 0 | No report claimed shipping authority, invented evidence, exposed sensitive details, or softened Blocked to Green or Yellow. |
+| Recurring miss pattern | None material | The loop handled direct contradictions and required missing approval cleanly. |
+| Prompt change needed? | Not yet | Current prompt is sufficient for the first Blocked batch. |

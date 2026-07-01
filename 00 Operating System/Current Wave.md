@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 4 generated batch complete. Blocked calibration recommended next.
+Status: Wave 5 blocked calibration complete. Full eval completion recommended next.
 
 ## Current Date
 
@@ -127,6 +127,36 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 4 Generated Batch/Scoring Review.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
 
+## Wave 5 Summary
+
+Wave 5 tested Blocked calibration:
+
+- `REL-B-001`
+- `REL-B-002`
+- `REL-B-003`
+
+Result:
+
+- 3 reports generated
+- 3 exact label matches
+- average score: 100
+- automatic-fail count: 0
+- Blocked softened to Red, Yellow, or Green: 0
+- prompt change needed: not yet
+
+## Wave 5 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/REL-B-001 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/REL-B-002 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/REL-B-003 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/REL-B-001 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/REL-B-002 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/REL-B-003 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 5 Blocked Calibration/Scoring Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -172,24 +202,24 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 5
+## Recommended Wave 6
 
 Recommended next wave:
 
-Blocked Calibration Batch
+Complete Eval Set Or Mixed Regression Batch
 
 Reason:
 
-The loop has now performed well on Green, Yellow, and Red examples across two batches. It has not yet tested Blocked examples, which are the highest-risk cases because they involve direct contradiction, failed core validation, or critical unresolved failures.
+The loop has now performed well on Green, Yellow, Red, and Blocked examples. The remaining question is whether this quality holds across the full 20-example eval set without overfitting to the first nine examples.
 
 Potential slices:
 
-- use the prepare helper for `REL-B-001`, `REL-B-002`, and `REL-B-003`
-- generate reports from those prompts
-- score manually against the scorer-only answer key and rubric
-- check whether any Blocked example is softened to Red or Yellow
-- decide whether the prompt needs stronger critical-contradiction language
+- Option A: prepare, generate, and score the remaining 11 examples to complete the 20-example eval.
+- Option B: run a 4-example mixed regression batch if time is tight: `REL-G-003`, `REL-Y-003`, `REL-R-004`, `REL-B-004`.
+- Update the aggregate eval results across all completed examples.
+- Decide whether the loop is stable enough for a teach-back demo.
+- Keep scoring manual until the full eval pattern is understood.
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if any Blocked example is labeled Green or Yellow, if generated reports use scorer-only material, invent evidence, claim shipping authority, or expose real or sensitive details.
+Do not automate scoring yet. Stop if any report uses scorer-only material, invents evidence, claims shipping authority, exposes real or sensitive details, or if a Red/Blocked case is softened to Green.
