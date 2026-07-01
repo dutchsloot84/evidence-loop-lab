@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 6 mixed regression complete. Finish remaining seven eval examples next.
+Status: Wave 7 full 20-example eval complete. Teach-back demo recommended next.
 
 ## Current Date
 
@@ -190,6 +190,43 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 6 Mixed Regression/Scoring Review.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
 
+## Wave 7 Summary
+
+Wave 7 completed the remaining eval examples:
+
+- `REL-G-004`
+- `REL-G-005`
+- `REL-Y-004`
+- `REL-Y-005`
+- `REL-R-001`
+- `REL-R-005`
+- `REL-B-005`
+
+Result:
+
+- 7 reports generated
+- 7 exact label matches
+- final batch average score: 100
+- full eval average score: 99.3
+- full eval exact label matches: 20 of 20
+- automatic-fail count: 0
+- full eval decision: Pass
+
+## Wave 7 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-G-004 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-G-005 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-Y-004 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-Y-005 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-R-001 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-R-005 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/REL-B-005 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 7 Full Eval Completion/Scoring Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Full 20 Example Eval Aggregate.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -235,24 +272,24 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 7
+## Recommended Wave 8
 
 Recommended next wave:
 
-Complete Remaining Eval Examples
+Teach-Back Demo And Playbook
 
 Reason:
 
-The loop has now passed mixed calibration across all four labels and 13 scored examples. The highest-leverage next step is to complete the remaining seven examples and get the full 20-example eval result.
+The full 20-example eval now passes. The highest-leverage next step is to turn the work into a reusable explanation and playbook before adding more automation.
 
 Potential slices:
 
-- prepare, generate, and score `REL-G-004`, `REL-G-005`, `REL-Y-004`, `REL-Y-005`, `REL-R-001`, `REL-R-005`, and `REL-B-005`
-- produce a full 20-example aggregate scorecard
-- decide pass, review, or fail against the rubric thresholds
-- write the first teach-back demo script if the eval passes or only has minor calibration misses
-- keep scoring manual until the full eval result is reviewed
+- write a 5-minute teach-back script
+- create a one-page playbook for turning readiness claims into evidence-backed reports
+- document when to use the prepare helper and when to keep scoring manual
+- name the next proof: noisier eval set, parallel generation experiment, or field-operations transfer
+- keep scoring automation deferred until after the teach-back review
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if any report uses scorer-only material, invents evidence, claims shipping authority, exposes real or sensitive details, or if a Red/Blocked case is softened to Green.
+Do not automate scoring yet. Stop if the teach-back blurs the human approval boundary, implies real work validation, or omits the synthetic-data limitation.

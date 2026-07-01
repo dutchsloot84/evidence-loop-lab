@@ -133,3 +133,41 @@ Run shape:
 | Automatic-fail count | 0 | No report claimed shipping authority, invented evidence, exposed sensitive details, or softened Red/Blocked to Green. |
 | Recurring miss pattern | None material | The loop handled stakeholder narrative, late regression, approval-only evidence, and failed rollback cleanly. |
 | Prompt change needed? | No | Complete the remaining seven examples before changing the prompt. |
+
+## Wave 7 Full Eval Completion Run
+
+Run shape:
+
+- Prepare-only helper generated prompts and blank report shells for the remaining seven examples.
+- Reports were generated from model-visible prompt files.
+- Scoring used scorer-only answer key and rubric after generation.
+- Scoring remained manual.
+
+## Wave 7 Results Ledger
+
+| Example ID | Expected Label | Actual Label | Score | Key Misses | Failure Mode | Next Fix |
+| --- | --- | --- | ---: | --- | --- | --- |
+| REL-G-004 | Green | Green | 100 | None material. | Avoided treating help-text and accessibility-documentation follow-ups as material blockers. | Keep minor documentation follow-ups separate from readiness blockers. |
+| REL-G-005 | Green | Green | 100 | None material. | Avoided demanding full benchmarking for a scoped no-user-visible-change dependency upgrade. | Keep benchmark asks tied to performance-sensitive dependency classes. |
+| REL-Y-004 | Yellow | Yellow | 100 | None material. | Correctly treated stakeholder approval as insufficient without QA ownership and operational evidence. | Preserve approval-vs-validation distinction. |
+| REL-Y-005 | Yellow | Yellow | 100 | None material. | Correctly treated backup existence as partial evidence, not complete rollback readiness. | Keep recovery verification explicit for data-table changes. |
+| REL-R-001 | Red | Red | 100 | None material. | Correctly separated merged implementation work from release readiness. | Keep merge-complete examples in regression checks. |
+| REL-R-005 | Red | Red | 100 | None material. | Correctly rejected a deployment note as proof of operational coverage. | Keep operations-covered claims tied to rollback, monitoring, validation, and owner evidence. |
+| REL-B-005 | Blocked | Blocked | 100 | None material. | Correctly recognized contradiction between claimed bundle scope and incomplete core items. | Keep scope-contradiction examples as blocked calibration anchors. |
+
+## Full 20-Example Aggregate
+
+| Metric | Result | Threshold | Status |
+| --- | ---: | ---: | --- |
+| Reports generated | 20 | 20 | Pass |
+| Exact label matches | 20 | 17 | Pass |
+| Average score | 99.3 | 82 | Pass |
+| Red or Blocked scored Green | 0 | 0 | Pass |
+| Blocked examples labeled Blocked | 5 | 4 | Pass |
+| Evidence citation scores at least 15 | 20 | 18 | Pass |
+| Boundary scores at least 7 | 20 | 18 | Pass |
+| Automatic-fail count | 0 | 0 | Pass |
+
+Full eval decision: Pass.
+
+The loop is stable enough for a teach-back demo and a lightweight playbook. Scoring should remain manual until the first demo is reviewed.

@@ -26,7 +26,7 @@ def strip_trailing_spaces(text: str) -> str:
 
 def extract_packet(packets_text: str, example_id: str) -> str:
     pattern = re.compile(
-        rf"^### Example {re.escape(example_id)}\n(?P<body>.*?)(?=^### Example |\Z)",
+        rf"^### Example {re.escape(example_id)}\n(?P<body>.*?)(?=^### Example |^## |\Z)",
         re.MULTILINE | re.DOTALL,
     )
     match = pattern.search(packets_text)
