@@ -1,75 +1,79 @@
 # Release Readiness Report
 
-Prepared blank shell for `REL-Y-002`.
-
-Replace this header section with the generated report. Keep eval notes blank until after generation is complete.
-
-# Release Readiness Report Template
-
-Use this template once per eval example. Keep entries synthetic or sanitized. Do not include real company names, customer names, employee names, repo names, ticket IDs, links, exact titles, or sensitive context.
-
-## Release Readiness Report
-
 ### Eval Example
 
-- Example ID:
-- Release type:
-- Claimed or desired decision:
+- Example ID: REL-Y-002
+- Release type: Third-party integration
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 
 ### Input Claim
 
-> Paste the readiness claim exactly as provided in the synthetic input packet.
+> "The integration is ready; only cosmetic issues remain."
 
 ### Summary
 
-Write a concise readiness summary in one to three sentences.
+The integration has partial readiness evidence, but the claim that only cosmetic issues remain is not fully supported. Smoke testing, sandbox credential validation, visual review, and code review are useful, yet the intermittent sync delay may be functional and lacks production-like volume testing or monitoring evidence.
 
 ### Evidence Summary
 
-Summarize the observable evidence used for the decision. Separate strong evidence from weak, missing, or ambiguous evidence.
-
 - Strong evidence:
-  -
+  - Integration smoke test passed for account connection and initial sync in sandbox.
+  - Partner sandbox note confirms test credentials worked during validation.
+  - Code review approval notes retry behavior was reviewed.
 - Weak or partial evidence:
-  -
+  - Manual visual review found spacing and label inconsistencies, which supports some cosmetic issue evidence.
+  - Retry behavior was reviewed but not load tested.
+  - The intermittent sync delay is described as likely non-user-facing, but the packet does not fully explain or prove that impact.
 - Known issues:
-  -
+  - One intermittent sync delay occurs in sandbox.
 
 ### Readiness Label
 
-Selected label:
+Selected label: Yellow
 
 Allowed labels: Green / Yellow / Red / Blocked
 
 ### Rationale
 
-Explain why this label fits the evidence. State what the evidence supports, what it does not support, and why the decision still needs or does not need human review.
+The packet supports a partial readiness recommendation because the basic integration path works in sandbox and code review is complete. However, the readiness claim overstates the evidence by framing remaining issues as cosmetic only. The intermittent sync delay may represent a functional integration risk, and the packet lacks production-like sync volume testing and monitoring for delayed syncs. Human review is needed to decide whether the remaining uncertainty is acceptable before release.
 
 ### Supported Claims
 
--
+- Sandbox account connection and initial sync passed an integration smoke test.
+- Sandbox test credentials worked during validation.
+- Spacing and label inconsistencies were found during visual review.
+- Code review approval is complete and retry behavior was reviewed.
 
 ### Unsupported or Weak Claims
 
--
+- The claim that only cosmetic issues remain is weak because an intermittent sync delay may be functional.
+- Production-like sync readiness is unsupported because volume testing is missing.
+- Operational readiness for delayed syncs is weak because monitoring is not defined.
+- Retry behavior confidence is limited because it was reviewed but not load tested.
 
 ### Evidence Gaps
 
--
+- Production-like sync volume test is missing.
+- Monitoring note for delayed syncs is missing.
+- Cosmetic-vs-functional impact of the intermittent sync delay is unclear.
+- Load testing for retry behavior is not included.
 
 ### Risks
 
--
+- The intermittent sync delay could affect users if it appears outside sandbox or under higher volume.
+- Without monitoring, delayed syncs may not be detected quickly after release.
+- Cosmetic framing may cause reviewers to underweight a functional integration risk.
 
 ### Next Evidence
 
-List the concrete evidence needed to improve confidence or move the release decision forward.
-
--
+- Provide production-like or higher-volume sync validation results.
+- Add a monitoring note for delayed sync detection, including the metric or alert to watch.
+- Document whether the intermittent sync delay is user-facing and why it is acceptable or fixed.
+- Add retry behavior validation under realistic load if the integration depends on retry reliability.
 
 ### Human Review Note
 
-State whether human review is required and why. The report may recommend a readiness label, but it should not claim authority to ship.
+Human review is required because the packet contains a potentially functional known issue and missing operational evidence. This report recommends a readiness label from the packet evidence but does not authorize shipment.
 
 ### Eval Notes
 

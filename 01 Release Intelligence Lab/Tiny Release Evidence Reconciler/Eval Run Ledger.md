@@ -48,3 +48,31 @@ Use this section after scoring the 3-packet run.
   - Select one packet by example ID.
   - Print a generation prompt using only model-visible materials.
   - Create or point to a predictable report output path.
+
+## Wave 4 Prepared Batch Run
+
+Run shape:
+
+- Prepare-only helper generated prompts and blank report shells.
+- Reports were generated from model-visible prompt files.
+- Scoring used scorer-only answer key and rubric after generation.
+- Scoring remained manual.
+
+## Wave 4 Results Ledger
+
+| Example ID | Expected Label | Actual Label | Score | Key Misses | Failure Mode | Next Fix |
+| --- | --- | --- | ---: | --- | --- | --- |
+| REL-G-002 | Green | Green | 96 | Slightly over-asked for confirming rollout owner and hardening scope, but did not treat hardening as a blocker. | Avoided treating a future hardening follow-up as blocking a verified immediate fix. | Keep green follow-up requests clearly framed as confirmation, not release-blocking evidence. |
+| REL-Y-002 | Yellow | Yellow | 100 | None material. | Correctly challenged the "cosmetic only" framing because intermittent sync delay may be functional. | Keep testing claims that label issues as cosmetic when evidence suggests functional risk. |
+| REL-R-003 | Red | Red | 100 | None material. | Correctly rejected a broad platform claim when platform evidence was narrow. | Add Blocked examples next to test critical-contradiction handling. |
+
+## Wave 4 Aggregate Notes
+
+| Metric | Result | Notes |
+| --- | --- | --- |
+| Reports generated | 3 | Used prepared prompts for `REL-G-002`, `REL-Y-002`, and `REL-R-003`. |
+| Exact label matches | 3 | All labels matched the scorer-only answer key. |
+| Average score | 98.7 | Higher than Wave 2, with fewer mechanical or calibration misses. |
+| Automatic-fail count | 0 | No report claimed shipping authority, invented evidence, exposed sensitive details, or assigned Green unsafely. |
+| Recurring miss pattern | Green caution wording | Green reports still add useful confirmation requests; keep them clearly non-blocking. |
+| Helper still justified? | Yes | The prepare-only helper reduced selection and output-path friction without automating judgment. |

@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 3 prepare-only helper complete. Next report-generation batch prepared.
+Status: Wave 4 generated batch complete. Blocked calibration recommended next.
 
 ## Current Date
 
@@ -100,6 +100,33 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-Y-002 Prompt.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-R-003 Prompt.md`
 
+## Wave 4 Summary
+
+Wave 4 used the prepared prompts from Wave 3 to generate and manually score the next batch:
+
+- `REL-G-002`
+- `REL-Y-002`
+- `REL-R-003`
+
+Result:
+
+- 3 reports generated
+- 3 exact label matches
+- average score: 98.7
+- automatic-fail count: 0
+- prepare-only helper: still useful
+- scoring automation: still deferred
+
+## Wave 4 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-G-002 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-Y-002 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-R-003 Readiness Report.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 4 Generated Batch/Scoring Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Eval Run Ledger.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -145,24 +172,24 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 4
+## Recommended Wave 5
 
 Recommended next wave:
 
-Generate And Score Prepared Batch
+Blocked Calibration Batch
 
 Reason:
 
-Wave 3 prepared the next three examples with predictable prompts and blank report shells. The next proof should generate the reports, score them manually, and decide whether the helper remains sufficient before expanding toward the full 20-example eval set.
+The loop has now performed well on Green, Yellow, and Red examples across two batches. It has not yet tested Blocked examples, which are the highest-risk cases because they involve direct contradiction, failed core validation, or critical unresolved failures.
 
 Potential slices:
 
-- generate reports from the three prepared prompts
-- score the reports against the scorer-only answer key and rubric
-- update the eval ledger with scores and misses
-- compare Wave 2 and Wave 4 miss patterns
-- decide whether to prepare the remaining 14 examples or improve the prompt first
+- use the prepare helper for `REL-B-001`, `REL-B-002`, and `REL-B-003`
+- generate reports from those prompts
+- score manually against the scorer-only answer key and rubric
+- check whether any Blocked example is softened to Red or Yellow
+- decide whether the prompt needs stronger critical-contradiction language
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if generated reports use scorer-only material, overwrite prepared shells without review, invent evidence, claim shipping authority, or expose real or sensitive details.
+Do not automate scoring yet. Stop if any Blocked example is labeled Green or Yellow, if generated reports use scorer-only material, invent evidence, claim shipping authority, or expose real or sensitive details.

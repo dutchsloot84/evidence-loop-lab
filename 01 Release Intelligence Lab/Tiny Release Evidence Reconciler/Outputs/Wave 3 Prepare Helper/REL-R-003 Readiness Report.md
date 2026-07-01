@@ -1,75 +1,79 @@
 # Release Readiness Report
 
-Prepared blank shell for `REL-R-003`.
-
-Replace this header section with the generated report. Keep eval notes blank until after generation is complete.
-
-# Release Readiness Report Template
-
-Use this template once per eval example. Keep entries synthetic or sanitized. Do not include real company names, customer names, employee names, repo names, ticket IDs, links, exact titles, or sensitive context.
-
-## Release Readiness Report
-
 ### Eval Example
 
-- Example ID:
-- Release type:
-- Claimed or desired decision:
+- Example ID: REL-R-003
+- Release type: Compatibility release
+- Claimed or desired decision: Evaluate whether the stated readiness claim is supported by the evidence.
 
 ### Input Claim
 
-> Paste the readiness claim exactly as provided in the synthetic input packet.
+> "The release is broadly compatible across supported platforms."
 
 ### Summary
 
-Write a concise readiness summary in one to three sentences.
+The broad compatibility claim is not supported by the visible evidence. The packet shows default-environment automated tests, desktop smoke testing on the primary supported platform, and code review approval, but it lacks tablet, mobile web, and platform-matrix evidence for the release scope being claimed.
 
 ### Evidence Summary
 
-Summarize the observable evidence used for the decision. Separate strong evidence from weak, missing, or ambiguous evidence.
-
 - Strong evidence:
-  -
+  - Automated tests passed in the default environment.
+  - Desktop smoke testing passed on the primary supported platform.
+  - Code review approval is complete.
 - Weak or partial evidence:
-  -
+  - Release note draft claims support across desktop, tablet, and mobile web, but the validation evidence only covers the default environment and primary desktop platform.
+  - No platform-compatibility matrix is attached.
+  - Monitoring note is missing.
 - Known issues:
-  -
+  - None documented.
 
 ### Readiness Label
 
-Selected label:
+Selected label: Red
 
 Allowed labels: Green / Yellow / Red / Blocked
 
 ### Rationale
 
-Explain why this label fits the evidence. State what the evidence supports, what it does not support, and why the decision still needs or does not need human review.
+The evidence does not support the claim that the release is broadly compatible across supported platforms. Passing tests in the default environment and desktop smoke testing on the primary platform provide useful limited readiness evidence, but they do not validate tablet or mobile web compatibility. This is Red rather than Blocked because the packet does not show a direct critical-path failure; instead, it shows a broad release claim that is materially unsupported by platform evidence.
 
 ### Supported Claims
 
--
+- Automated tests passed in the default environment.
+- Desktop smoke testing passed on the primary supported platform.
+- Code review approval is complete.
+- A release note draft claims broad platform support.
 
 ### Unsupported or Weak Claims
 
--
+- Broad compatibility across supported platforms is unsupported because tablet and mobile web validation are missing.
+- The release note draft overstates the evidence by claiming support across desktop, tablet, and mobile web.
+- Operational readiness is weak because monitoring is not defined.
 
 ### Evidence Gaps
 
--
+- Tablet validation is missing.
+- Mobile web validation is missing.
+- Platform-compatibility matrix is missing.
+- Monitoring note is missing.
 
 ### Risks
 
--
+- Users on tablet or mobile web may encounter unvalidated compatibility issues.
+- The release note may communicate broader support than the evidence can defend.
+- Without monitoring, platform-specific issues may not be detected quickly after release.
 
 ### Next Evidence
 
-List the concrete evidence needed to improve confidence or move the release decision forward.
-
--
+- Add tablet validation results.
+- Add mobile web validation results.
+- Attach a platform-compatibility matrix mapping supported platforms to test evidence.
+- Add monitoring for platform-specific errors or compatibility signals.
+- Revise the release note if broad platform support is not yet validated.
 
 ### Human Review Note
 
-State whether human review is required and why. The report may recommend a readiness label, but it should not claim authority to ship.
+Human review is required because the stated release scope is broader than the available platform evidence. This report recommends a readiness label from the packet evidence but does not authorize shipment.
 
 ### Eval Notes
 
