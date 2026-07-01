@@ -53,22 +53,27 @@ Optional summary output:
 - aggregate score notes after a batch is complete
 - tiny script decision note
 
-## Future Command Shape
+## Implemented Prepare Command
 
-Only add a command after the manual run proves it would reduce errors. If justified, the command should be shaped around file selection and repeatable output paths, not automatic judgment.
+Wave 3 added a prepare-only command after the first manual run showed that the next batch would benefit from consistent packet selection and output paths.
 
-Possible future command:
+Command:
 
 ```sh
-release-eval prepare REL-G-001
+python3 scripts/release_eval_prepare.py REL-G-002 --write-files
 ```
 
-Expected behavior:
+Behavior:
 
 - find the selected packet in `Mock Data/Release Packets.md`
-- create or identify the report output path
-- print a generation prompt that includes only model-visible context
-- prefill a blank ledger row for later scoring
+- create a prompt file that includes only the selected packet and report template
+- create a blank report shell at a predictable output path
+- refuse to overwrite existing prompt or report-shell files
+- leave scoring manual
+
+Without `--write-files`, the command prints the model-visible prompt to stdout.
+
+## Future Scorer Command
 
 Possible later command:
 
@@ -83,7 +88,7 @@ Expected behavior:
 - present scoring headings in a consistent order
 - require a human scorer to enter scores and miss notes
 
-The scorer command may use `Mock Data/Answer Key.md`. The prepare command may not.
+The scorer command may use `Mock Data/Answer Key.md`. The prepare command may not. Do not add the scorer command until manual scoring has repeated enough times to make the scorer workflow stable.
 
 ## Files Read And Written
 
@@ -91,12 +96,11 @@ Prepare step may read:
 
 - `Mock Data/Release Packets.md`
 - `Report Template.md`
-- `Loop Spec.md`
 
 Prepare step may write:
 
-- `Outputs/Wave 2 Manual Eval/<example-id> Readiness Report.md`, if creating a blank report shell
-- temporary prompt text, if needed
+- `Outputs/Wave 3 Prepare Helper/<example-id> Prompt.md`
+- `Outputs/Wave 3 Prepare Helper/<example-id> Readiness Report.md`, as a blank report shell
 
 Prepare step must not read:
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 2 manual eval run complete. Prepare-only helper recommended.
+Status: Wave 3 prepare-only helper complete. Next report-generation batch prepared.
 
 ## Current Date
 
@@ -70,6 +70,36 @@ Artifacts:
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 2 Manual Eval/REL-R-002 Readiness Report.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 2 Manual Eval/Scoring Review.md`
 
+## Wave 3 Summary
+
+Wave 3 added the first tiny local helper:
+
+- dependency-free local prepare script
+- prepare-helper usage guide
+- prepared prompt and blank report shell for the next three examples
+- guardrail run log
+
+Result:
+
+- command shape: `python3 scripts/release_eval_prepare.py <example-id> --write-files`
+- prepared examples: `REL-G-002`, `REL-Y-002`, `REL-R-003`
+- overwrite guard: passed
+- missing-example guard: passed
+- scorer-only leakage scan: passed
+- scoring automation: not added
+
+## Wave 3 Evidence
+
+Artifacts:
+
+- `scripts/release_eval_prepare.py`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Prepare Helper Guide.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/README.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/Prepare Helper Run Log.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-G-002 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-Y-002 Prompt.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 3 Prepare Helper/REL-R-003 Prompt.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -115,24 +145,24 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 3
+## Recommended Wave 4
 
 Recommended next wave:
 
-Prepare-Only Local Helper
+Generate And Score Prepared Batch
 
 Reason:
 
-Wave 2 proved that the manual loop can generate and score the first three reports. The next bottleneck is repeatability, not judgment. A tiny helper should reduce packet-selection, prompt-shaping, and output-path mistakes before expanding to the 20-example eval set.
+Wave 3 prepared the next three examples with predictable prompts and blank report shells. The next proof should generate the reports, score them manually, and decide whether the helper remains sufficient before expanding toward the full 20-example eval set.
 
 Potential slices:
 
-- define the helper command contract
-- create a tiny local prepare helper
-- add a dry-run example for one packet
-- verify the helper never reads `Mock Data/Answer Key.md`
-- expand the manual eval run to the next 3-5 packets
+- generate reports from the three prepared prompts
+- score the reports against the scorer-only answer key and rubric
+- update the eval ledger with scores and misses
+- compare Wave 2 and Wave 4 miss patterns
+- decide whether to prepare the remaining 14 examples or improve the prompt first
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if scorer-only material appears in model-visible prompts, if the helper overwrites a report, or if any packet contains real or sensitive details.
+Do not automate scoring yet. Stop if generated reports use scorer-only material, overwrite prepared shells without review, invent evidence, claim shipping authority, or expose real or sensitive details.
