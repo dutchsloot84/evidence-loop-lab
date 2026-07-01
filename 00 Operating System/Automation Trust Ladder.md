@@ -129,6 +129,30 @@ Reason:
 
 Wave 1 proved that parallel worktree slices and reviewer sub-agents can produce useful artifacts, but the system still needs human approval before launching or pushing new work.
 
+## Wave 9 Parallel Generation Note
+
+Wave 9 tested four generation-only workers in parallel with strict answer-key separation.
+
+Result:
+
+- answer-key leakage: 0
+- authority-boundary failures: 0
+- exact label matches: 2 of 4
+- Red or Blocked softened to Green: 0
+- decision: review, not promotion
+
+The coordination boundary worked, but severity calibration did not. Parallel generation is not yet approved for broader unattended eval expansion.
+
+Allowed next use:
+
+- synthetic or sanitized examples only
+- generation-only workers only
+- main-thread scoring required
+- leakage audit required
+- stronger severity-calibrated worker prompt required
+
+Trust level remains Level 2, Auditor.
+
 ## Promotion Rule
 
 Promote one level only after two clean runs at the current level.
@@ -151,4 +175,3 @@ Move down one level if automation:
 - misses a sanitation issue
 - makes a recommendation without evidence
 - requires more cleanup than it saves
-

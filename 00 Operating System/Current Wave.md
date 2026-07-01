@@ -2,7 +2,7 @@
 
 ## Status
 
-Status: Wave 8 teach-back and playbook complete. Next proof decision needed.
+Status: Wave 9 parallel generation trust test complete. Prompt calibration fix recommended next.
 
 ## Current Date
 
@@ -249,6 +249,37 @@ Artifacts:
 - `06 Teach-Backs and Demos/Tiny Release Evidence Reconciler Teach-Back.md`
 - `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Release Evidence Playbook.md`
 
+## Wave 9 Summary
+
+Wave 9 tested parallel generation with four generation-only workers.
+
+The scorer-only answer key was created after workers completed generation.
+
+Result:
+
+- 4 reports generated
+- 2 exact label matches
+- average score: 93.5
+- answer-key leakage found: 0
+- automatic-fail count: 0
+- Red or Blocked softened to Green: 0
+- decision: Review, not promotion
+
+The coordination boundary worked. Severity calibration did not fully hold.
+
+## Wave 9 Evidence
+
+Artifacts:
+
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Parallel Generation Protocol.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Model Visible Packets.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Worker Prompt Template.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Worker Run Log.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Leakage Audit.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Scoring Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/ROI Review.md`
+- `01 Release Intelligence Lab/Tiny Release Evidence Reconciler/Outputs/Wave 9 Parallel Generation Trust Test/Scorer Answer Key.md`
+
 ## Current Trust Level
 
 Automation trust level: Level 2, Auditor.
@@ -294,24 +325,25 @@ Recommended next wave:
 - Requires approval: yes
 ```
 
-## Recommended Wave 9
+## Recommended Wave 10
 
 Recommended next wave:
 
-Choose Next Proof
+Rerun Parallel Generation With Severity-Calibrated Prompt
 
 Reason:
 
-The first lab now has a passing eval, a prepare helper, a teach-back, and a reusable playbook. The next move should deliberately choose which kind of proof compounds the project most.
+Wave 9 proved answer-key separation can hold across workers, but two workers softened severity on operational-readiness cases. The next proof should test whether a stronger prompt fixes that specific failure before parallel generation is used for larger batches.
 
 Potential slices:
 
-- Option A: run a noisier synthetic eval set to reduce overfitting risk
-- Option B: test parallel report generation with strict answer-key separation
-- Option C: transfer the loop to field-operations pilot proof
-- Option D: make a lightweight demo deck or walkthrough
-- keep scoring automation deferred until one of these proofs exposes the actual bottleneck
+- use the new worker prompt template with severity calibration
+- rerun `PAR-R-001` and `PAR-B-001` with generation-only workers
+- include one Green or Yellow control example
+- score manually after generation
+- compare exact labels and leakage against Wave 9
+- keep trust level at Level 2 unless the rerun is clean
 
 ## Stop Condition
 
-Do not automate scoring yet. Stop if the next proof would use real or sensitive data, blur the human approval boundary, or skip explicit sanitation.
+Do not automate scoring yet. Stop if the rerun leaks scorer-only context, uses real or sensitive data, blurs the human approval boundary, or softens Red/Blocked evidence to Green.
